@@ -1,0 +1,23 @@
+body{
+font: Roboto Regular;
+font-size: 16px;
+line-height: 1.5;
+color: #283136;
+font-weight: normal;
+}
+
+h1{
+font: Roboto Medium;
+font-size: 55px;
+line-height: 1;
+color: #000000;
+font-weight: normal;
+}
+
+h2{
+font: Roboto Regular;
+font-size: 24px;
+line-height: 1.25;
+color: #000000;
+font-weight: normal;
+}
