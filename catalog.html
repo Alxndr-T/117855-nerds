@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
     <title>HTML Academy: Нёрдс магазин</title>
   </head>
   <body>
@@ -15,7 +16,7 @@
           <ul class="navigation">
             <li><a href="#">Студия</a></li>
             <li><a href="#">Клиенты</a></li>
-            <li><a href="catalog.html">Магазин</a></li>
+            <li class="active-page"><span>Магазин</span></li>
             <li><a href="#">Контакты</a></li>   
           </ul>  
         </nav>
@@ -28,159 +29,198 @@
     </header>
     <main class="catalog">
       <div class="container clearfix">
-        <div class="catalog-content-left clearfix">
-          <b>СТОИМОСТЬ:</b>
-          <div class="range">
-            <div class="price-field">
-              <div class="line"></div>
-              <div class="filled-line"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
+        <div class="catalog-sidebar">
+          <p>Стоимость</p>
+          <form class="filter" action="#" method="get">
+            <div class="range-filter">
+              <div class="range-controls">
+                <div class="scale">
+                  <div class="bar" style="margin-left: 20%; width: 30%"></div>
+                </div>
+                <div class="toggle toggle-min"></div>
+                <div class="toggle toggle-max"></div>
+              </div>
+              <div class="price-controls clearfix">
+                <label class="min-price"><span>от</span>
+                  <input name="min-price" type="text" value="0">
+                </label>
+                <label class="max-price"><span>до</span>
+                  <input name="max-price" type="text" value="15000">
+                </label>
+              </div>
             </div>
-            <div class="price-range">
-              <form class="price">
-                <label class="min-price">ОТ<input type="text" value="0"></input></label>
-                <label class="max-price">ДО<input type="text" value="15000"></input></label>
-              </form>
+            <div class="parametrs">
+              <p>Сетка</p>
+              <label>
+                <input type="radio" id="adaptive" name="net" checked="checked">
+                <span class="radio-indicator"></span> Адаптивная
+              </label>
+              <label>
+                <input type="radio" id="fixed" name="net">
+                <span class="radio-indicator"></span> Фиксированная
+              </label>
+              <label>
+                <input type="radio" id="rubber" name="net">
+                <span class="radio-indicator"></span> Резиновая
+              </label>
+              <p>Особенности</p>
+              <label>
+                <input type="checkbox" id="slider" name="slider" checked>
+                <span class="checkbox-indicator"></span> Слайдер
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" id="block" name="iblock">
+                <span class="checkbox-indicator"></span> Блок преимуществ</label>
+              <br>
+              <label>
+                <input type="checkbox" id="news" checked="checked" name="news">
+                <span class="checkbox-indicator"></span> Новости
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" id="gallery" name="gallery">
+                <span class="checkbox-indicator"></span> Галерея
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" id="cart" name="cart">
+                <span class="checkbox-indicator"></span> Корзина
+              </label>
             </div>
-          </div>
-          <form сlass="selection">
-            <fieldset>
-              <legend class = "grid">СЕТКА:</legend>
-                <label><input type="radio">Адаптивная</label>
-                <label><input type="radio">Фиксированная</label>
-                <label><input type="radio">Резиновая</label>
-            </fieldset>
-            <fieldset>
-              <legend class = "individuality">ОСОБЕННОСТИ:</legend>
-                <label><input type="checkbox">Слайдер</label>
-                <label><input type="checkbox">Блок приемуществ</label>
-                <label><input type="checkbox">Новости</label>
-                <label><input type="checkbox">Галерея</label>
-                <label><input type="checkbox">Корзина</label>
-            </fieldset>
-            <input type="submit" value="ПОКАЗАТЬ">
+            <button type="submit" class="btn">Показать</button>
           </form>
         </div>
-        <div class="catalog-content-right clearfix">
-          <div class="catalog-content-right-sort clearfix">
-            <b>СОРТИРОВКА:</b>
-            <div class="sorting-menu clearfix">
-              <a class = "sorting" href="#">ПО ЦЕНЕ</a>
-              <a class = "sorting" href="#">ПО ТИПУ</a>
-              <a class = "sorting" href="#">ПО НАЗВАНИЮ</a>
-              <a class = "sorting" href="#">▼</a>
-              <a class = "sorting" href="#">▲</a>
+        <div class="catalog-content">
+          <div class="content-top-sort clearfix">
+            <div class="content-top-text">
+              <p>Сортировать</p>
+            </div>
+            <div class="content-top-links">
+              <a href="#" class="active-sorts">По цене</a>
+              <a href="#">По типу</a>
+              <a href="#">По названию</a>
+              <a href="#" class="top-links-down">
+                <div class="active-sort"></div>
+              </a>
+              <a href="#" class="top-links-up">
+                <div></div>
+              </a>
             </div>
           </div>
-          <div class="sorting-patterns clearfix">
-            <article class="pattern">
-              <div class="pattern-header">
-                <div class="pattern-dots">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-              </div>
-              <img src="img/img-sedona.jpg">
-              <div class="pattern-order-form">
-                <b>SEDONA</b>
+          <article class="catalog-content-item">
+            <img src="img/img-sedona.jpg" width="360" height="576" alt="sedona">
+            <div class="content-item-sale">
+              <div class="item-container">
+                <a class="item-sale-info" href="#">
+                  <h2>Sedona</h2></a>
                 <p>Информационный сайт для туристов</p>
-                <a class="btn" href="#">9900 РУБ.</a>
+                <a href="#" class="btn">9900 руб.</a>
               </div>
-            </article>
-            <article class="pattern">
-              <div class="pattern-header">
-              <img src="img/img-pink.jpg">
-              <div class="pattern-order-form">
-                <b>PINK APP</b>
+            </div>
+          </article>
+          <article class="catalog-content-item">
+            <img src="img/img-pink.jpg" width="360" height="576" alt="Pink">
+            <div class="content-item-sale">
+              <div class="item-container">
+                <a class="item-sale-info" href="#">
+                  <h2>Pink</h2></a>
                 <p>Продуктовый лендинг приложения для iOS и Android</p>
-                <a class="btn" href="#">9900 РУБ.</a>
+                <a href="#" class="btn">9900 руб.</a>
               </div>
-            </article>
-            <article class="pattern">
-              <img src="img/img-barbershop.jpg">
-              <div class="pattern-order-form">
-                <b>BARBERSHOP</b>
+            </div>
+          </article>
+          <article class="catalog-content-item">
+            <img src="img/img-barbershop.jpg" width="360" height="576" alt="Borodinsky">
+            <div class="content-item-sale">
+              <div class="item-container">
+                <a class="item-sale-info" href="#">
+                  <h2>Borodinsky</h2></a>
                 <p>Сайт салоны красоты. Для мужчин, да.</p>
-                <a class="btn" href="#">9900 РУБ.</a>
+                <a href="#" class="btn">9900 руб.</a>
               </div>
-            </article>
-            <article class="pattern">
-              <div class="pattern-header">
-                <div class="pattern-dots">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
+            </div>
+          </article>
+          <article class="catalog-content-item">
+            <img src="img/img-mishka.jpg" width="360" height="576" alt="Mishka">
+            <div class="content-item-sale">
+              <div class="item-container">
+                <a class="item-sale-info" href="#">
+                  <h2>Mishka</h2></a>
+                <p>Интернет-магазин вязаных игрушек</p>
+                <a href="#" class="btn">9900 руб.</a>
               </div>
-              <img src="img/img-mishka.jpg">
-             <div class="pattern-order-form">
-                <b>MISHKA</b>
-                <p>Интернет-магазин  вязаных игрушек</p>
-                <a class="btn" href="#">9900 РУБ.</a>
-              </div>
-            </article>
-            <article class="pattern">
-              <div class="pattern-header">
-                <div class="pattern-dots">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-              </div>
-              <img src="img/img-aplus.jpg">
-              <div class="pattern-order-form">
-                <b>A PLUS</b>
+            </div>
+          </article>
+          <article class="catalog-content-item">
+            <img src="img/img-aplus.jpg" width="360" height="576" alt="study">
+            <div class="content-item-sale">
+              <div class="item-container">
+                <a class="item-sale-info" href="#">
+                  <h2>A Plus</h2> </a>
                 <p>Лендинг курсов повышения квалификации</p>
-                <a class="btn" href="#">9900 РУБ.</a>
+                <a href="#" class="btn">9900 руб.</a>
               </div>
-            </article>
-            <article class="pattern clearfix">
-              <div class="pattern-header">
-                <div class="pattern-dots">
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
-              </div>
-              <img src="img/img-kvast.jpg">
-              <div class="pattern-order-form">
-                <b>КВАСТ</b>
+            </div>
+          </article>
+          <article class="catalog-content-item">
+            <img src="img/img-kvast.jpg" width="360" height="576" alt="Kvast">
+            <div class="content-item-sale">
+              <div class="item-container">
+                <a class="item-sale-info" href="#">
+                  <h2>Kvast</h2></a>
                 <p>Промо-сайт производителя крафтового кваса</p>
-                <a class="btn" href="#">9900 РУБ.</a>
+                <a href="#" class="btn">9900 руб.</a>
               </div>
-            </article>
-          </div>
+            </div>
+          </article>
           <div class="navigation-buttons clearfix">
-            <a class="navigationbtn" href="#">1</a>
-            <a class="navigationbtn" href="#">2</a>
-            <a class="navigationbtn" href="#">3</a>
-            <a class="navigationbtn" href="#">Следующая</a>
+            <a class="navigation-btn btn active-navigation" href="#">1</a>
+            <a class="navigation-btn btn" href="#">2</a>
+            <a class="navigation-btn btn" href="#">3</a>
+            <a class="navigation-btn btn" href="#">Следующая</a>
           </div>
         </div>
-      </div>   
+      </div>
+      <div class="сontacts-map clearfix">
+        <div class="сontacts-left" >
+          <b>NЁRDS DESIGN STUDIO</b>
+          <p class="contacts">191186, Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
+          <p class="contacts">тел. +7 (812) 275-75-75</p>
+          <a class="btn write-btn" href="#">НАПИШИТЕ НАМ</a>
+        </div>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.5991043651586!2d30.320894616097!3d59.938794181876254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywgMTkxMTg2!5e0!3m2!1sru!2sru!4v1479219650776" height="416" style="border:0" allowfullscreen>
+        </iframe>
+      </div>  
     </main>
     <footer class="main-footer">
-      <div class="container clearfix">
-        <div class="сontacts-field clearfix">
-          <div class="сontacts-field-left">
-            <b>NЁRDS DESIGN STUDIO</b>
-            <p class="contacts">191186, Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</p>
-            <p class="contacts">тел. +7 (812) 275-75-75</p>
-            <a class="contact-us" href="#">НАПИШИТЕ НАМ</a>
-          </div>
+        <div class="container clearfix">
+            <section class="footer-social">
+                <a href="#" class="social-btn-vk">Вконтакте</a>
+                <a href="#" class="social-btn-fb">Фейсбук</a>
+                <a href="#" class="social-btn-instagram">Инстаграм</a>
+            </section>
+            <section class="footer-slogan">
+                <b>Давайте дружить, это выгодно!</b>
+                <p>Скидка 10% для друзей из социальных сетей</p>
+            </section>
         </div>
-        <section class="footer-social">
-          <a class="social-btn-vk" href="#">Вконтакте</a>
-          <a class="social-btn-fb" href="#">Фейсбук</a>
-          <a class="social-btn-inst" href="#">Инстаграм</a>  
-        </section>
-        <section class="footer-slogan">
-          <b>Давайте дружить, это выгодно!</b>
-          <p> 10% скидка для друзей из социальных сетей</p>
-        </section>
-      </div>
     </footer>
+    <div class="modal-content">
+        <button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
+        <h2>Напишите нам</h2>
+        <form action="#" class="write-us" method="post">
+            <div class="input-container clearfix">
+                <label for="name">Ваше имя:</label>
+                <label for="email">Ваш e-mail:</label>
+                <input type="text" name="name" id="name" placeholder="Представьтесь, пожалуйста">
+                <input type="text" name="email" id="email" placeholder="Для отправки ответа">
+            </div>
+            <label for="message">Текст письма:</label>
+            <textarea placeholder=" В свободной форме" name="message" id="message"></textarea>
+            <button class="btn" type="submit">Отправить</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="js/min.script.js"></script>
   </body>
 </html>
